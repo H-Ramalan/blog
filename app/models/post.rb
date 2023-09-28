@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :likes, class_name: 'Like'
 
   after_save :update_post_counter
-  
+
   private
 
   def update_post_counter
@@ -15,6 +15,4 @@ class Post < ApplicationRecord
   def recent_comments
     comments.order(created_at: :asc).limit(5)
   end
-
-
 end
