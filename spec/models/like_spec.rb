@@ -19,7 +19,7 @@ RSpec.describe Like, type: :model do
       expect(like.post_id).to eq(post.id)
     end
     it 'should return the correct numeber of like count' do
-      count = like.update_like_count
+      count = like.update_like_counter
       expect(count).to eq(1)
     end
   end

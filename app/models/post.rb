@@ -18,8 +18,8 @@ class Post < ApplicationRecord
     comments.order(created_at: :asc).limit(5)
   end
 
-  #VALIDATIONS
-  validates :title, presence: true, length: {maximum: 250}
-  validates :likes_counter, presence:true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+  # VALIDATIONS
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :likes_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :comments_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end
