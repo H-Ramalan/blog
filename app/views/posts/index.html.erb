@@ -1,1 +1,16 @@
-<h1>Here is the list of all posts<h1>
+<h1>Here is the list of all posts</h1>
+<div> 
+  <span><img src="https://picsum.photos/id/64/200" alt="..."></span>
+   <span>name: <%= @user.name %></span>
+   <span>number of posts: <%= @user.posts.count %></span>
+      <% @user.posts.each do |post| %>
+        <% post.recent_comments.each do |comment| %>
+          <li>username: <%= User.find(comment.user_id).name %> comment: <%= comment.text %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </ul>
+  <div>
+    <button type="button">Pagination</button>
+  </div>
+</div>
