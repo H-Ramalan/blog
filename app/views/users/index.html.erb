@@ -1,1 +1,16 @@
 <h1>Here is the list of all users<h1>
+<div>
+  <h1>Users</h1>
+   <ul>
+    <% @users.each do |user| %>
+    <li>
+     <span><img src="https://picsum.photos/id/64/200" alt="..."></span>
+    <li>
+     <span>
+      Name: <%= user.name %>
+     <span> Number of posts: <%= user.posts.count %> </span>
+     </span>
+    </li>
+    <% end %>
+   </ul>
+</div>
