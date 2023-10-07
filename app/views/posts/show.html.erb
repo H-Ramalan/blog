@@ -2,19 +2,20 @@
 <div>
     <div>
       <div>Post # <%= @post.id %> by <%= User.find(@post.author_id).name %>
-      </div>
+    </div>
       <%= @post.text  %>
     </div>
     <div>
       <span>Comments: <%= @post.comments.count%></span>
-      <span>Likes:<%= @post.likes.count %></span>
+      <span>Likes: <%= @post.likes.count %></span>
     </div>
   <ul>
    <% @post.comments.each do |comment| %>
    <li>Username:  <%= User.find(comment.user_id).name %>,  Comment:  <%= comment.text%> </li> 
    <%end%>
   </ul>
-  <div>
-   <button type="button">Pagnation</button>
-  </div>
+ <div>
+ <%= render 'likes/new', post: @post, like: @like %>
+ <%= link_to 'Go to posts page', user_posts_path %>
+ </div>
 </div>
