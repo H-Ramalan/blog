@@ -4,13 +4,21 @@
    <span>name: <%= @user.name %></span>
    <span>number of posts: <%= @user.posts.count %></span>
       <% @user.posts.each do |post| %>
+        <div>Post # <%= post.id %>
+        <%= post.text %>
+        </div>
+        <div>
+        <span>Comments: <%= post.comments.count %></span>
+        <span>Likes: <%= post.likes.count %></span>
+        </div>
+        <ul>
         <% post.recent_comments.each do |comment| %>
-          <li>username: <%= User.find(comment.user_id).name %> comment: <%= comment.text %></li>
+          <li>Username: <%= User.find(comment.user_id).name %> comment: <%= comment.text %></li>
         <% end %>
+        </ul>
       <% end %>
-    </ul>
-  </ul>
+    
   <div>
-    <button type="button">Pagination</button>
+   <%= link_to 'Create new post', new_user_post_path %>
   </div>
 </div>

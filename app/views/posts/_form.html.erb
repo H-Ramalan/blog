@@ -1,0 +1,13 @@
+<%= form_with(model: [@user, @post], local: true, url: user_posts_path) do |form| %>
+  <div>
+    <%= form.label :title, for: "exampleFormControlInput1" %><br/>
+    <%= form.text_field :title, id: "exampleFormControlInput1" %>
+  </div>
+  <div>
+    <%= form.label :text, for: "exampleFormControlTextarea1" %><br/>
+    <%= form.text_area :text, id: "exampleFormControlTextarea1", rows: "3" %>
+  </div>
+  <p>
+    <%= form.submit 'Create Post' %>
+  </p>
+<% end %>
