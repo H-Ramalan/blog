@@ -10,7 +10,6 @@ class Post < ApplicationRecord
     user.update(post_counter: user.posts.count)
   end
 
-
   public
 
   def recent_comments
