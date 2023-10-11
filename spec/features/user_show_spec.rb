@@ -6,7 +6,7 @@ RSpec.describe 'users/show.html.erb', type: :feature do
     let!(:post1) { Post.create(user: user, title: 'Post 1', text: 'This is my first post', author_id: user.id) }
     let!(:post2) { Post.create(user: user, title: 'Post 2', text: 'This is my second post', author_id: user.id) }
     let!(:post3) { Post.create(user: user, title: 'Post 3', text: 'This is my third post', author_id: user.id) }
-    
+
     before do
       visit user_path(user)
     end
@@ -15,13 +15,13 @@ RSpec.describe 'users/show.html.erb', type: :feature do
       expect(page).to have_css("img[src*='#{user.photo}']")
     end
 
-    # it "shows the user's username" do
-    #   expect(page).to have_content(user.name)
-    # end
+    it "shows the user's username" do
+      expect(page).to have_content(user.name)
+    end
 
-    # it 'shows the number of posts the user has written' do
-    #   expect(page).to have_content('number of posts: 8')
-    # end
+    it 'shows the number of posts the user has written' do
+      expect(page).to have_content(user.post_counter)
+    end
 
     # it "shows the user's bio" do
     #   expect(page).to have_content('Bio')
