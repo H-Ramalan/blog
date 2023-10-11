@@ -23,29 +23,25 @@ RSpec.describe 'users/show.html.erb', type: :feature do
       expect(page).to have_content(user.post_counter)
     end
 
-    # it "shows the user's bio" do
-    #   expect(page).to have_content('Bio')
-    #   expect(page).to have_content('Teacher from Mexico')
-    # end
+    it "shows the user's bio" do
+      expect(page).to have_content('Bio')
+      expect(page).to have_content('Teacher from Mexico')
+    end
 
-    # it "shows the user's first 3 posts" do
-    #   expect(page).to have_content('This is my first post')
-    #   expect(page).to have_content('This is my second post')
-    #   expect(page).to have_content('This is my third post')
-    # end
+    it "shows the user's first 3 posts" do
+      expect(page).to have_content('This is my first post')
+      expect(page).to have_content('This is my second post')
+      expect(page).to have_content('This is my third post')
+    end
 
-    # it "shows a button that lets me view all of a user's posts" do
-    #   expect(page).to have_content('See All Post')
-    # end
+    it "shows a button that lets me view all of a user's posts" do
+      expect(page).to have_content('See All Post')
+    end
 
-    # it "When I click a user's post, it redirects me to that post's show page" do
-    #   click_on("Title: #{post1.title}")
-    #   expect(current_path).to eq(user_post_path(user1, post1))
-    # end
+   it "When I click a user's post, it redirects me to that post's show page" do
+  click_link("title: #{post1.title}")
+  expect(current_path).to eq(user_post_path(user, post1))
+end
 
-    # it "should redirect to the user's post's index page when I click to see all posts " do
-    #   click_on('See All Post')
-    #   expect(current_path).to eq(user_posts_path(user_id: user1.id))
-    # end
   end
 end
