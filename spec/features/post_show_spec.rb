@@ -2,14 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'posts/show.html.erb', type: :feature do
   describe 'show page' do
-    let(:user) {User.create(name: 'Tom', photo: 'https://picsum.photos/id/64/200', bio: 'Teacher from Mexico', post_counter: 0)}
-    
-      
-    let(:post) { Post.create(user: user, title: 'Post # 1', text: 'This is my first post', author_id: user.id) }
-    let(:comment1) { Comment.create(user: user, post:, text: 'comment 1') }
-    let(:comment2) { Comment.create(user: user, post:, text: 'comment 2') }
-    let(:like1) { Like.create(user: user, post: post) }
-  
+    let(:user) { User.create(name: 'Tom', photo: 'https://picsum.photos/id/64/200', bio: 'Teacher from Mexico', post_counter: 0) }
+
+    let(:post) { Post.create(user:, title: 'Post # 1', text: 'This is my first post', author_id: user.id) }
+    let(:comment1) { Comment.create(user:, post:, text: 'comment 1') }
+    let(:comment2) { Comment.create(user:, post:, text: 'comment 2') }
+    let(:like1) { Like.create(user:, post:) }
 
     before do
       visit user_post_path(user, post)
@@ -18,8 +16,8 @@ RSpec.describe 'posts/show.html.erb', type: :feature do
     # it "shows  the post's title" do
     #   expect(page).to have_content(post.title)
     # end
-    
-    it "shows page heading" do 
+
+    it 'shows page heading' do
       expect(page).to have_content('This page shows the users posts and comments')
     end
     # it 'shows who wrote the post' do

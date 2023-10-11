@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'users/show.html.erb', type: :feature do
   describe 'show page' do
     let(:user) { User.create(name: 'Tom', photo: 'https://picsum.photos/id/64/200', bio: 'Teacher from Mexico', post_counter: 0) }
-    let!(:post1) { Post.create(user: user, title: 'Post 1', text: 'This is my first post', author_id: user.id) }
-    let!(:post2) { Post.create(user: user, title: 'Post 2', text: 'This is my second post', author_id: user.id) }
-    let!(:post3) { Post.create(user: user, title: 'Post 3', text: 'This is my third post', author_id: user.id) }
+    let!(:post1) { Post.create(user:, title: 'Post 1', text: 'This is my first post', author_id: user.id) }
+    let!(:post2) { Post.create(user:, title: 'Post 2', text: 'This is my second post', author_id: user.id) }
+    let!(:post3) { Post.create(user:, title: 'Post 3', text: 'This is my third post', author_id: user.id) }
 
     before do
       visit user_path(user)
@@ -38,10 +38,9 @@ RSpec.describe 'users/show.html.erb', type: :feature do
       expect(page).to have_content('See All Post')
     end
 
-   it "When I click a user's post, it redirects me to that post's show page" do
-  click_link("title: #{post1.title}")
-  expect(current_path).to eq(user_post_path(user, post1))
-end
-
+    it "When I click a user's post, it redirects me to that post's show page" do
+      click_link("title: #{post1.title}")
+      expect(current_path).to eq(user_post_path(user, post1))
+    end
   end
 end
