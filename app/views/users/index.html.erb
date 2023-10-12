@@ -1,17 +1,18 @@
 <h1>Here is the list of all users<h1>
 <div>
+<h1>Here is the list of all users</h1>
+<div>
   <h1>Users</h1>
-   <ul>
+  <ul>
     <% @users.each do |user| %>
-    <li>
-     <span><img src="https://picsum.photos/id/64/200" alt="..."></span>
-    <li>
-     <span>
-      Name: <%= user.name%>
-      id: <%= user.id%>
-     <span> Number of posts: <%= user.posts.count %> </span>
-     </span>
-    </li>
+      <li>
+        <span><img src="https://picsum.photos/id/64/200" alt="..."></span>
+        <li>
+       <%= link_to user_path(user) do %>
+            <h2><%= user.name %></h2>
+          <% end %>
+        <span> Number of posts: <%= user.posts.count %> </span>
+      </li>
     <% end %>
-   </ul>
+  </ul>
 </div>

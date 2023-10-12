@@ -5,7 +5,7 @@
    <span>number of posts: <%= @user.posts.count %></span>
       <% @user.posts.each do |post| %>
         <div>Post # <%= post.id %>
-        <%= post.text %>
+        <%= link_to  post.text, user_post_path(@user, post) %>
         </div>
         <div>
         <span>Comments: <%= post.comments.count %></span>
@@ -21,4 +21,9 @@
   <div>
    <%= link_to 'Create new post', new_user_post_path %>
   </div>
+  <% if@user.posts.count > 3 %>
+  <div class="pagination">
+    <button>Pagination</button>
+  </div>
+  <% end %>
 </div>

@@ -11,8 +11,8 @@
   <% @user.posts.each do |post| %>
     <li>
     <div>
-      <div>Post # <%= post.id%></div>
-      <%= post.text  %>
+     <div> <%="title: #{post.title}"%></div>
+      <div><%=link_to  post.text, user_post_path(@user, post) %></div>
     </div>
     <div>
     <span>Comments: <%= post.comments.count%></span>
@@ -20,7 +20,9 @@
     </div>
   </li>
   <%end%>
-  <div>
-<button type="button">See All Post</button>
-  </div>
+<div>
+ <%= link_to user_posts_path(@user) do %>
+  <button>See all posts</button>
+ <% end %>
+</div>
 </div>
