@@ -25,7 +25,7 @@ RSpec.describe 'posts/show.html.erb', type: :feature do
     end
 
     it 'shows how many comments it has' do
-      expect(page).to have_content('Comments: 1')
+      expect(page).to have_content('Comments: 2')
     end
 
     it 'shows how many likes it has' do
@@ -42,6 +42,7 @@ RSpec.describe 'posts/show.html.erb', type: :feature do
 
     it 'shows  the comment each commentor left' do
       expect(page).to have_content('Comment: Hi Tom!')
+      expect(page).to have_content('Comment: Nice post')
     end
   end
 end

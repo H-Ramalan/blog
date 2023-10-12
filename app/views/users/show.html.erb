@@ -20,8 +20,9 @@
     </div>
   </li>
   <%end%>
-  <div>
-
-<button type="button">See All Post</button>
-  </div>
+<div>
+ <%= link_to user_posts_path(@user) do %>
+  <button>See all posts</button>
+ <% end %>
+</div>
 </div>
