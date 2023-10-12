@@ -6,6 +6,8 @@ RSpec.describe 'users/show.html.erb', type: :feature do
     let!(:post1) { Post.create(user:, title: 'Post 1', text: 'This is my first post', author_id: 1) }
     let!(:post2) { Post.create(user:, title: 'Post 2', text: 'This is my second post', author_id: 1) }
     let!(:post3) { Post.create(user:, title: 'Post 3', text: 'Third post', author_id: 1) }
+    let!(:post4) { Post.create(user:, title: 'Post 4', text: 'New post', author_id: 1) }
+
 
     before do
       visit user_path(1)

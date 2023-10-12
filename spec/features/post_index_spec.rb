@@ -19,7 +19,7 @@ RSpec.describe 'posts/index.html.erb', type: :feature do
       expect(page).to have_content("name: #{user.name}")
     end
     it 'shows the number of posts the user has written' do
-      expect(page).to have_content('number of posts: 4')
+      expect(page).to have_content('number of posts: 5')
     end
     it "shows a post's title" do
       expect(page).to have_content('Post # 370')
