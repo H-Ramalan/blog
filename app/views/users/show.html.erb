@@ -11,8 +11,8 @@
   <% @user.posts.each do |post| %>
     <li>
     <div>
-     <div><%= link_to "title: #{post.title}", user_post_path(@user, post) %></div>
-      <%= post.text %>
+     <div> <%="title: #{post.title}"%></div>
+      <div><%=link_to  post.text, user_post_path(@user, post) %></div>
     </div>
     <div>
     <span>Comments: <%= post.comments.count%></span>

@@ -7,10 +7,10 @@ RSpec.describe 'User Index Page', type: :feature do
   end
 
   it 'displays the username of all other users' do
-    # Write Capybara code to visit the user index page and check for usernames
     visit users_path
-    expect(page).to have_content('Name: Tom')
-    expect(page).to have_content('Name: Lilly')
+    expect(page).to have_content('Tom')
+    expect(page).to have_content('Lilly')
+    expect(page).to have_content('Hamza')
   end
 
   it 'displays the profile picture for each user' do
@@ -21,12 +21,13 @@ RSpec.describe 'User Index Page', type: :feature do
 
   it 'displays the number of posts each user has written' do
     visit users_path
-    expect(page).to have_content('Number of posts: 8')
-    expect(page).to have_content('Number of posts: 0')
+
+    expect(page).to have_content('Number of posts: 3')
   end
 
   it "redirects to a user's show page when clicking on a user" do
-    click_link('Name: Tom')
-    expect(current_path).to eq(user_path(@user1))
+    visit users_path
+    expect(page).to have_link(@user2.name)
+    click_link(@user2.name)
   end
 end

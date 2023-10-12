@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:success] = 'Comment created successfully.'
-      redirect_to users_posts_path(1, 1)
+      redirect_to users_posts_path(@user, @post)
     else
       flash[:error] = 'Error creating comment.'
       redirect_to user_posts_path
