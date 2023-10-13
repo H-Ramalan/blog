@@ -72,6 +72,10 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'sassc'
+
+gem 'bootstrap-sass'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'devise', '~> 4.9'
